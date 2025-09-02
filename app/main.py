@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from app.api.tournament import router
 
+app = FastAPI(title='Tournament API')
 
-@app.post('/tournaments')
-async def create_tournaments():
-    return {'message': "Hello World !!!"}
+app.include_router(router)
